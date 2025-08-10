@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoy contigo, Nelson</title>
-    <link rel="stylesheet" href="/src/css/pirn.css">
+    <link rel="stylesheet" href="/src/css/index.css">
     
 </head>
 <body>
@@ -40,17 +40,30 @@
         </div>
 
         <div class="music-container">
-            <div class="music-title">Esta canción expresa lo que siento por ti:</div>
-            
-            <p class="video-caption">Love Someone - Lukas Graham</p>
+    <div class="music-title">Esta canción expresa lo que siento por ti:</div>
+    <div class="video-container">
+        <div class="video-placeholder" id="videoPlaceholder">
+            <img src="https://img.youtube.com/vi/dN44xpHjNxE/maxresdefault.jpg" 
+                 alt="Love Someone - Lukas Graham" 
+                 class="video-thumbnail">
+            <div class="play-button" id="playButton"></div>
         </div>
-        
+        <iframe id="yt-video" class="video-iframe" 
+                src="about:blank" 
+                frameborder="0" 
+                allowfullscreen 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+    </div>
+    <p class="video-caption">Love Someone - Lukas Graham</p>
+</div>
+
         <div class="signature">
             <p>Con todo mi amor y apoyo,</p>
             <p>Jam <span class="heart">❤️</span></p>
         </div>
     </div>
-    <script src="/src/js/pirn.js"></script>
+    <script src="/src/js/index.js"></script>
 
 </body>
 </html>

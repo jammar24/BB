@@ -17,23 +17,23 @@ function createPetalEffect(flowerElement, isHug, count = 12) {
                     const endY = windowHeight + 50;
                     const delay = Math.random() * 0.5;
                     const size = 20 + Math.random() * 20;
-                    
+
                     petal.style.setProperty('--end-x', `${endX}px`);
                     petal.style.setProperty('--end-y', `${endY}px`);
                     petal.style.width = `${size}px`;
                     petal.style.height = `${size}px`;
                     petal.style.animationDuration = `${duration}s`;
                     petal.style.animationDelay = `${delay}s`;
-                    
+
                     document.body.appendChild(petal);
-                    
+
                     setTimeout(() => {
                         petal.remove();
                     }, (duration + delay) * 1000);
                 }, i * 150);
             }
         }
-        
+
         // Control del video
         function setupVideo() {
             const playButton = document.getElementById('playButton');
@@ -56,32 +56,57 @@ function createPetalEffect(flowerElement, isHug, count = 12) {
                 videoFrame.src += "&autoplay=1";
             });
         }
-        
+
         document.addEventListener('DOMContentLoaded', function() {
             // Configurar flores
             const hugFlower = document.getElementById('hugFlower');
             const kissFlower = document.getElementById('kissFlower');
-            
+
             const addFlowerEvents = (flower, isHug) => {
                 flower.addEventListener('mouseenter', function() {
                     createPetalEffect(flower, isHug, 8);
                 });
-                
+
                 flower.addEventListener('click', function() {
                     createPetalEffect(flower, isHug, 15);
                 });
-                
+
                 flower.addEventListener('touchstart', function(e) {
                     e.preventDefault();
                     createPetalEffect(flower, isHug, 15);
                 });
             };
-            
+
             addFlowerEvents(hugFlower, true);
             addFlowerEvents(kissFlower, false);
-            
+
             // Configurar video
             setupVideo();
+
+
+   document.addEventListener('DOMContentLoaded', function() {
+    const playButton = document.getElementById('playButton');
+    const placeholder = document.getElementById('videoPlaceholder');
+    const iframe = document.getElementById('yt-video');
+
+    // Función para cargar el video
+    function loadVideo() {
+        iframe.src = "https://www.youtube.com/embed/dN44xpHjNxE?autoplay=1&rel=0&modestbranding=1";
+        placeholder.style.display = 'none';
+        iframe.style.display = 'block';
+    }
+
+    // Eventos para el botón de play
+    playButton.addEventListener('click', loadVideo);
+    placeholder.addEventListener('click', loadVideo);
+
+    // Soporte para móviles
+    playButton.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        loadVideo();
+    });
+});
+
             
             // Efecto de carga para el mensaje
             const message = document.querySelector('.message');
